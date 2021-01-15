@@ -1,33 +1,39 @@
 ---
-project: ""
-sponsor: ""
-program-name: ""
-location: ""
-description: ""
-called-by: ""
-calls-to: ""
-programmer: ""
-date-written: ""
 output:
   html_document:
-    toc: true
-    fig_caption: true
+    df_print: paged
+    toc: no
   pdf_document:
-    toc: true
+    toc: no
 ---
----
-input-files: ""
-output-files: ""
----
-#Modifications
----
-date:
-programmer:
-description:
----
----
-date:
-programmer:
-description:
----
+**HEADER:**  
+PROJECT:  
+SPONSOR/PI:  
+PROGRAM NAME:  
+LOCATION:  
+DESCRIPTION:  
+CALLED BY:  
+CALLS TO:  
+PROGRAMMER:  
+DATE WRITTEN:      
+***      
+INPUT FILES:  
+OUTPUT FILES:      
+***      
+**MODIFICATIONS**    
+DATE:  
+PROGRAMMER:  
+DESCRIPTION:    
+***      
+DATE:  
+PROGRAMMER:  
+DESCRIPTION:    
+***  
+
+Install/load packages
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(dplyr, foreign, lattice, haven, janitor)#add relevant packages
+#p_load command installs packages in list not previously installed
+```
 

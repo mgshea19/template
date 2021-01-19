@@ -1,4 +1,5 @@
 ---
+title: "[PROGRAM NAME]"
 output:
   html_document:
     df_print: paged
@@ -6,34 +7,78 @@ output:
   pdf_document:
     toc: no
 ---
-**HEADER:**  
-PROJECT:  
+### **Header:**  
+PROJECT: 
 SPONSOR/PI:  
-PROGRAM NAME:  
-LOCATION:  
+PROGRAM NAME: 
+LOCATION: 
 DESCRIPTION:  
-CALLED BY:  
-CALLS TO:  
-PROGRAMMER:  
-DATE WRITTEN:      
-***      
-INPUT FILES:  
-OUTPUT FILES:      
-***      
-**MODIFICATIONS**    
+SPEC NAME:  
+SPEC LOC:  
+PROGRAMMER: 
+DATE WRITTEN: YYYY.MM.DD  
+GENERAL NOTES:    
+**NOTES FOR QC**  
+QC PROGRAMMER:  
+QC DATE:  
+QC STATUS:  
+QC NOTES:    
+**INPUT/OUTPUT**   
+DATA IN:  
+DATA OUT:  
+REPORTS OUT:  
+**MODIFICATION #**      
 DATE:  
 PROGRAMMER:  
-DESCRIPTION:    
-***      
-DATE:  
-PROGRAMMER:  
-DESCRIPTION:    
-***  
+DESCRIPTION: 
+NOTES FOR QC:  
+QC PROGRAMMER:  
+QC DATE:  
+QC STATUS:  
+QC NOTES:  
+
+### **Setup**  
+*Note: remove "eval=FALSE" from top of code chunks to run*  
 
 Install/load packages
 ```{r}
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(dplyr, foreign, lattice, haven, janitor)#add relevant packages
+#setwd()
+if (!require("rmarkdown")) install.packages("rmarkdown")
+if (!require("pacman")) install.packages("pacman")#install relevant packages
+pacman::p_load(rmarkdown,readxl,haven,Hmisc,foreign,lattice,janitor,dplyr)
 #p_load command installs packages in list not previously installed
 ```
+Import data
+```{r,eval=FALSE}
+#Haven package read_sas command
+#Data reads in with labels from SAS
+data <- read_sas("[file path]/[data file name].sas7bdat")
+#View(data)
+```
+Clean variable names
+```{r,eval=FALSE}
+#Use Janitor package clean_names command to clean variable name
+#by making all lowercase, changing spaces and punctuation to underscores
+data_clean<-clean_names(data)
+#names(data_clean)
+```
+Add/edit labels
+```{r,eval=FALSE}
+#View labels using Hmisc package label command
+label(data_clean)
+#Set labels with same command
+label(data_clean$id)<-"ID Label"
+#View(data_clean)
+```
 
+### **Macros**  
+
+### **Data Manipulation**  
+
+### **Permanent Dataset**  
+
+### **Statistical Procedures**  
+
+### **Output Manipulation**  
+
+### **Formatted Output (TFLs)**  

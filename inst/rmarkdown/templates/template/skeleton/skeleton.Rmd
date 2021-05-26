@@ -43,8 +43,8 @@ QC NOTES:
 Install/load packages
 ```{r}
 #setwd()
-if (!require("rmarkdown")) install.packages("rmarkdown")
-if (!require("pacman")) install.packages("pacman")#install relevant packages
+if (!require("rmarkdown")) {install.packages("rmarkdown")}
+if (!require("pacman")) {install.packages("pacman")}#install relevant packages
 pacman::p_load(rmarkdown,readxl,haven,Hmisc,foreign,lattice,janitor,dplyr)
 #p_load command installs packages in list not previously installed
 ```

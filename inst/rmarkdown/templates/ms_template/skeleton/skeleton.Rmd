@@ -1,0 +1,85 @@
+---
+title: "[PROGRAM NAME]"
+output:
+  pdf_document:
+    toc: no
+  html_document:
+    df_print: paged
+    toc: no
+---
+Install/load packages
+```{r,warning=FALSE}
+#call another setup program
+#source("~/GitHub/template/RunScript.R")#comment out (after running) if knitting
+load("meta.RData")
+#setwd("ad.bu.edu/bumcfiles/SPH/DCC/Dept")
+pacman::p_load(rmarkdown,readxl,haven,Hmisc,foreign,lattice,janitor,dplyr,rstudioapi,stringr)
+#p_load command installs packages in list not previously installed
+```
+
+### **Header:**  
+PROJECT: `r project`  
+SPONSOR/PI:  
+PROGRAM NAME: `r program_name`  
+LOCATION: `r location`  
+DESCRIPTION:  
+SPEC NAME:  
+SPEC LOC:  
+PROGRAMMER: Maggie Shea `r paste("(Username:",Sys.getenv("username"),")")`  
+DATE WRITTEN: YYYY.MM.DD `r paste("(Last compiled on",Sys.Date(),")")`  
+GENERAL NOTES:    
+**NOTES FOR QC**  
+QC PROGRAMMER:  
+QC DATE:  
+QC STATUS:  
+QC NOTES:    
+**INPUT/OUTPUT**   
+DATA IN:  
+DATA OUT:  
+REPORTS OUT:  
+**MODIFICATION #**      
+DATE:  
+PROGRAMMER:  
+DESCRIPTION: 
+NOTES FOR QC:  
+QC PROGRAMMER:  
+QC DATE:  
+QC STATUS:  
+QC NOTES:  
+
+### **Setup**  
+*Note: remove "eval=FALSE" from top of code chunks to run*  
+Import data
+```{r,eval=FALSE}
+#Haven package read_sas command
+#Data reads in with labels from SAS
+data <- read_sas("[file path]/[data file name].sas7bdat")
+#View(data)
+```
+Clean variable names
+```{r,eval=FALSE}
+#Use Janitor package clean_names command to clean variable name
+#by making all lowercase, changing spaces and punctuation to underscores
+data_clean<-clean_names(data)
+#names(data_clean)
+```
+Add/edit labels
+```{r,eval=FALSE}
+#View labels using Hmisc package label command
+label(data_clean)
+#Set labels with same command
+label(data_clean$id)<-"ID Label"
+#View(data_clean)
+```
+
+### **Macros/Functions**  
+
+### **Data Manipulation**  
+
+### **Permanent Dataset**  
+
+### **Statistical Procedures**  
+
+### **Output Manipulation**  
+
+### **Formatted Output (TFLs)**  

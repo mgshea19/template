@@ -10,9 +10,9 @@ output:
 Install/load packages
 ```{r,warning=FALSE}
 #call another setup program
-#source("~/GitHub/template/RunScript.R")#comment out (after running) if knitting
-load("meta.RData")
 #setwd("ad.bu.edu/bumcfiles/SPH/DCC/Dept")
+source("RunScript.R")#comment out (after running) if knitting
+load("meta.RData")
 pacman::p_load(rmarkdown,readxl,haven,Hmisc,foreign,lattice,janitor,dplyr,rstudioapi,stringr)
 #p_load command installs packages in list not previously installed
 ```

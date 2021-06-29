@@ -7,14 +7,26 @@ output:
     df_print: paged
     toc: no
 ---
-Install/load packages
+Install/load packages  
 ```{r,warning=FALSE}
-#call another setup program
 #setwd("ad.bu.edu/bumcfiles/SPH/DCC/Dept")
-source("RunScript.R")#comment out (after running) if knitting
-load("meta.RData")
+if (!require("rmarkdown")) {install.packages("rmarkdown")}
+if (!require("pacman")) {install.packages("pacman")}#install relevant packages
 pacman::p_load(rmarkdown,readxl,haven,Hmisc,foreign,lattice,janitor,dplyr,rstudioapi,stringr)
 #p_load command installs packages in list not previously installed
+```
+Extract metadata  
+```{r,eval=FALSE}
+#If knitting, run this code chunk then change "eval=TRUE" to "eval=FALSE" above
+#Extracting metadata
+project<-substr(rstudioapi::getActiveProject(),max(as.data.frame(stringr::str_locate_all(rstudioapi::getActiveProject(),"/"))$start)+1,nchar(rstudioapi::getActiveProject()))
+program_name<-substr(rstudioapi::getSourceEditorContext()$path,max(as.data.frame(stringr::str_locate_all(rstudioapi::getSourceEditorContext()$path,"/"))$start)+1,max(as.data.frame(stringr::str_locate_all(rstudioapi::getSourceEditorContext()$path,".Rmd"))$start)-1)
+location<-dirname(rstudioapi::getSourceEditorContext()$path)
+save(project, program_name, location, file = "meta.RData")
+```
+Load metadata
+```{r}
+load("meta.RData")
 ```
 
 ### **Header:**  

@@ -1,2 +1,3 @@
 name: "01: My Template (Custom Format)"
 description: Template with custom fields
+license: use_mit_license()

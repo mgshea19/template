@@ -16,7 +16,7 @@ pacman::p_load(rmarkdown,readxl,haven,Hmisc,foreign,lattice,janitor,dplyr,rstudi
 #p_load command installs packages in list not previously installed
 ```
 Extract metadata  
-```{r,eval=FALSE}
+```{r,eval=TRUE}
 #If knitting, run this code chunk then change "eval=TRUE" to "eval=FALSE" above
 #Extracting metadata
 program_name<-substr(rstudioapi::getSourceEditorContext()$path,max(as.data.frame(stringr::str_locate_all(rstudioapi::getSourceEditorContext()$path,"/"))$start)+1,max(as.data.frame(stringr::str_locate_all(rstudioapi::getSourceEditorContext()$path,".Rmd"))$start)-1)
@@ -29,7 +29,7 @@ load("meta.RData")
 ```
 
 ### **Header:**  
-PROJECT:  
+PROJECT: 
 SPONSOR/PI:  
 PROGRAM NAME: `r program_name`  
 LOCATION: `r location`  

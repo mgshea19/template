@@ -42,7 +42,7 @@ QC NOTES:
 
 Install/load packages
 ```{r}
-setwd(ad.bu.edu/bumcfiles/SPH/DCC/Dept)
+setwd("ad.bu.edu/bumcfiles/SPH/DCC/Dept")
 if (!require("rmarkdown")) {install.packages("rmarkdown")}
 if (!require("pacman")) {install.packages("pacman")}#install relevant packages
 pacman::p_load(rmarkdown,readxl,haven,Hmisc,foreign,lattice,janitor,dplyr)
